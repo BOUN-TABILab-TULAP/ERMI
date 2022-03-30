@@ -81,17 +81,17 @@ class MWEPreProcessor:
 
     def to_cupt_with_comments(self):
         lines = ''
-        lines += "ID\tFORM\tLEMMA\tUPOS\tHEAD\tDEPREL\tPARSEME:MWE \n"
+        lines += "ID\tFORM\tLEMMA\tUPOS\tXPOS\tFEATS\tHEAD\tDEPREL\tDEPS\tMISC\tPARSEME:MWE \n"
         for idx, row in self._test_corpus.iterrows():
             if row['PARSEME:MWE'] == 'space':
                 line = '\n'
             else:
-                line = str(row['ID']) + '\t' + row['FORM'] + '\t' + row['LEMMA'] + '\t' + row['UPOS'] + '\t' + row['HEAD'] + '\t' + row['DEPREL'] + '\t' + row['BIO'] + '\n'
+                line = str(row['ID']) + '\t' + row['FORM'] + '\t' + row['LEMMA'] + '\t' + row['UPOS'] + '\t' + row['XPOS'] + '\t' + row['FEATS'] + '\t' + row['HEAD'] + '\t' + row['DEPREL'] + '\t' + row['DEPS'] + '\t' + row['MISC'] + '\t' + row['BIO'] + '\n'
             lines += line
         """f = codecs.open(self.test_tagged_path, "w", "utf-8")
         f.write(lines)
         f.close()"""
-        
+        print(lines)
         return lines
 
     def read_sentences(self, corpus):
@@ -557,4 +557,5 @@ class MWEPreProcessor:
         self.max_sent = max(self.max_train_sent, self.max_test_sent)
         if self.withraw == 'yes' or os.path.isfile(self.raw_path):
             self.max_raw_sent = max([len(sen) for sen in self.raw_sentences])
+
             
