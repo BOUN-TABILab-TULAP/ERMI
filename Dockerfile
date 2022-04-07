@@ -7,7 +7,7 @@ WORKDIR /workspace
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-RUN wget -q -r -nH --cut-dirs=1  --no-parent -e robots=off https://nlp.cmpe.boun.edu.tr/staticFiles/TR_model/
+RUN wget -q -r -nH --cut-dirs=1 --no-check-certificate  --no-parent -e robots=off https://nlp.cmpe.boun.edu.tr/staticFiles/TR_model/
 
 EXPOSE 5000
 
