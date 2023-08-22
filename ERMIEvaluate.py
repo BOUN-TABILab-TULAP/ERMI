@@ -50,7 +50,7 @@ class ERMIEvaluate:
         text = sentence
 
         doc = nlp(text)
-        udpiped_sentence = [(token.i + 1, token.text, token.lemma_, token.pos_, "_", "_", str(token.head), token.dep_.lower(), "_", "_", "_") for token in doc]
+        udpiped_sentence = [(token.i + 1, token.text, token.lemma_, token.pos_, "_", "_", token.head.i, token.dep_.lower(), "_", "_", "_") for token in doc]
         self.mwe.test_sentences = [udpiped_sentence]
         new_corpus = pd.DataFrame(udpiped_sentence, columns=['ID', 'FORM', 'LEMMA', 'UPOS', 'XPOS', 'FEATS', 'HEAD', 'DEPREL',
                                                    'DEPS', 'MISC', 'PARSEME:MWE'])
