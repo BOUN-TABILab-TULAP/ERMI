@@ -1,19 +1,19 @@
 ## How to run using Docker
 1. Clone the repo
 ```bash
-git clone https://github.com/BOUN-TABILab-TULAP/ERMIE.git
+git clone https://github.com/BOUN-TABILab-TULAP/ERMI.git
 ```
 2. Launch a terminal in the root directory of the repo and build the Docker image where
 - `-t` is the tag for the Docker image. You can provide any name you want
 - `.` is the relative path to the Dockerfile 
 ```bash
-docker build -t ermie .
+docker build -t ermi .
 ```
 3. Run the Docker image where
 - `-d` indicates "detach", let the container run in the background
 - `-p 5000:5000` indicates mapping port 5000 of the container to the port 5000 of the host.
 ```bash
-docker run -d -p 5000:5000 ermie
+docker run -d -p 5000:5000 ermi
 ```
 4. Send a POST request
 - via curl
